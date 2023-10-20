@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="522.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.splogin.controllers.EventScreenController">
+
+   <children>
+      <TextField layoutX="149.0" layoutY="179.0" />
+      <TextField layoutX="149.0" layoutY="225.0" />
+      <TextField layoutX="149.0" layoutY="130.0" />
+      <TextField layoutX="149.0" layoutY="270.0" />
+      <TextField layoutX="149.0" layoutY="316.0" />
+      <ImageView fx:id="EventPic" fitHeight="95.0" fitWidth="116.0" layoutX="173.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true"/>
+      <Button layoutX="173.0" layoutY="358.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="116.0" style="-fx-background-color: white; ;-fx-text-fill: black;" text="Insert Image" />
+      <Label alignment="CENTER" layoutX="61.0" layoutY="27.0" prefHeight="76.0" prefWidth="227.0" text="ADD EVENT">
+         <font>
+            <Font name="Times New Roman Bold" size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="130.0" layoutY="480.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #2b6df1; -fx-background-radius: 15;-fx-text-fill: white;" text="ADD" />
+      <Label layoutX="64.0" layoutY="132.0" prefHeight="17.0" prefWidth="56.0" text="Title">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="181.0" prefHeight="17.0" prefWidth="62.0" text="EventID">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="227.0" prefHeight="17.0" prefWidth="71.0" text="Description">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="272.0" prefHeight="17.0" prefWidth="71.0" text="Date">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="318.0" prefHeight="17.0" prefWidth="71.0" text="location">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="62.0" text="Picture">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="320.0" layoutY="34.0" orientation="VERTICAL" prefHeight="475.0" prefWidth="1.0" />
+      <TableView fx:id="eventTable" layoutX="350" layoutY="39.0" prefHeight="467.0" prefWidth="559.0">
+         <columns>
+            <TableColumn fx:id="titleCol" prefWidth="61.0" text="Title" />
+            <TableColumn fx:id="idCol" prefWidth="61.0" text="EventID" />
+            <TableColumn fx:id="dateCol" prefWidth="61.0" text="Date " />
+            <TableColumn fx:id="locationCol" prefWidth="61.0" text="Location" />
+            <TableColumn fx:id="pictureCol" prefWidth="62.0" text="Image" />
+            <TableColumn fx:id="categoryCol" prefWidth="61.0" text="Category" />
+            <TableColumn fx:id="hostCol" prefWidth="61.0" text="Host" />
+            <TableColumn fx:id="authorCol" prefWidth="62.0" text="Author" />
+            <TableColumn fx:id="descriptionCol" prefWidth="69.0" text="Description" />
+         </columns>
+      </TableView>
+
+   </children>
+</AnchorPane>

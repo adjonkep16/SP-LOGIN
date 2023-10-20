@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="center" prefHeight="454.0" prefWidth="380.0" spacing="10" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/11.0.14-internal" fx:controller="com.example.splogin.SignUpController" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Button fx:id="back" alignment="TOP_RIGHT" layoutX="30.0" layoutY="35.0" onAction="#Back" prefHeight="29.0" prefWidth="360.0" style="-fx-background-radius: 15; -fx-background-color: #fafafa; -fx-text-fill: black;" text="Back">
+        <font>
+            <Font name="Times New Roman Bold" size="16.0" />
+        </font>
+    </Button>
+    <Label layoutX="30.0" layoutY="60.0" prefHeight="44.0" prefWidth="344.0" style="-fx-text-fill: black;" text="Sign Up">
+        <font>
+            <Font name="Times New Roman Bold" size="22.0" />
+        </font>
+    </Label>
+    <HBox spacing="10">
+        <Label text="" />
+        <TextField fx:id="UsernameTextField" layoutX="150.0" layoutY="100.0" prefHeight="47.0" prefWidth="380.0" promptText="            Full Name" style="-fx-background-radius: 15;-fx-background-color: #eceeee;">
+            <font>
+                <Font name="Times New Roman" size="15.0" />
+            </font>
+        </TextField>
+        <Label text="" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="" />
+        <TextField fx:id="emailTextField" layoutX="150.0" layoutY="100.0" prefHeight="47.0" prefWidth="380.0" promptText="            abc@email.com" style="-fx-background-radius: 15;-fx-background-color: #eceeee;">
+            <font>
+                <Font name="Times New Roman" size="15.0" />
+            </font>
+        </TextField>
+        <Label text="" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="" />
+        <PasswordField fx:id="loginPasswordPasswordField" layoutX="150.0" layoutY="140.0" prefHeight="48.0" prefWidth="360.0" promptText="            Your Password" style="-fx-background-radius: 15;-fx-background-color: #eceeee;">
+            <font>
+                <Font name="Times New Roman" size="15.0" />
+            </font>
+        </PasswordField>
+        <Label text="" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="" />
+        <TextField fx:id="ConfirmPasswordTextField" layoutX="150.0" layoutY="100.0" prefHeight="48.0" prefWidth="360.0" promptText="            Confirm Password" style="-fx-background-radius: 15;-fx-background-color: #eceeee;">
+            <font>
+                <Font name="Times New Roman" size="15.0" />
+            </font>
+        </TextField>
+        <Label text="" />
+    </HBox>
+
+    <Button fx:id="SignUpButton" layoutX="235.0" layoutY="205.0" mnemonicParsing="false" onAction="#signUp" prefHeight="41.0" prefWidth="107.0" style="-fx-background-color: #2b6df1; -fx-background-radius: 15;-fx-text-fill: white;" text="SIGN UP" textOverrun="CLIP" wrapText="true">
+        <font>
+            <Font name="Times New Roman" size="17.0" />
+        </font>
+    </Button>
+</VBox>

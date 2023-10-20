@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.splogin.controllers.EventScreenController">
+   <children>
+      <ImageView fitHeight="77.0" fitWidth="73.0" layoutX="270.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/KSU_Logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="add" layoutX="69.0" layoutY="175.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #2b6df1; -fx-background-radius: 15;-fx-text-fill: white;" text="ADD" />
+      <Button fx:id="update" layoutX="480.0" layoutY="175.0" mnemonicParsing="false" onAction="#editEvent" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #2b6df1; -fx-background-radius: 15;-fx-text-fill: white;" text="UPDATE" />
+      <Button fx:id="delete" layoutX="267.0" layoutY="175.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #2b6df1; -fx-background-radius: 15;-fx-text-fill: white;" text="DELETE" />
+      <TableView fx:id="eventTable" layoutX="-11.0" layoutY="253.0" prefHeight="324.0" prefWidth="615.0">
+        <columns>
+          <TableColumn fx:id="titleCol" prefWidth="68.0" text="Title" />
+          <TableColumn fx:id="idCol" prefWidth="68.0" text="EventID" />
+            <TableColumn fx:id="dateCol" prefWidth="68.0" text="Date " />
+            <TableColumn fx:id="locationCol" prefWidth="68.0" text="Location" />
+            <TableColumn fx:id="pictureCol" prefWidth="69.0" text="Image" />
+            <TableColumn fx:id="categoryCol" prefWidth="68.0" text="Category" />
+            <TableColumn fx:id="hostCol" prefWidth="68.0" text="Host" />
+            <TableColumn fx:id="authorCol" prefWidth="69.0" text="Author" />
+            <TableColumn fx:id="descriptionCol" prefWidth="69.0" text="Description" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="183.0" layoutY="120.0" prefHeight="33.0" prefWidth="223.0" text="OWL EVENTS">
+         <font>
+            <Font name="Times New Roman Bold" size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
