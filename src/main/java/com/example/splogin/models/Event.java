@@ -6,7 +6,7 @@ public class Event {
     static String description;
     static String date;
     static String location;
-    static String image;
+    static String Image;
     static String host;
     static String category;
     static String author;
@@ -77,21 +77,21 @@ public class Event {
         Event.location = location;
     }
 
-    public static String getPicture() {
-        return image;
+    public static String getImage() {
+        return Image;
     }
 
-    public static void setPicture(String picture) {
-        Event.image = picture;
+    public static void setImage(String Image) {
+        Event.Image = Image;
     }
 
-    public Event(String title, int eventID, String date, String location, String image, String category, String host, String author, String description){
+    public Event(String title, int eventID, String date, String location, String Image, String category, String host, String author, String description){
         this.title=title;
         this.eventID=eventID;
         this.description=description;
         this.date=date;
         this.location=location;
-        this.image=image;
+        this.Image=Image;
         this.category=category;
         this.author=author;
         this.host=host;

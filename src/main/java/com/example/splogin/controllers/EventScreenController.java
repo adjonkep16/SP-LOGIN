@@ -120,10 +120,10 @@ public class EventScreenController implements Initializable {
     public void showEventData() {
         ObservableList<Event> showEventList = eventList();
 
-        idCol.setCellValueFactory(new PropertyValueFactory<>("eventId"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("eventID"));
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
-        pictureCol.setCellValueFactory(new PropertyValueFactory<>("image"));
+        pictureCol.setCellValueFactory(new PropertyValueFactory<>("Image"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
         hostCol.setCellValueFactory(new PropertyValueFactory<>("host"));
