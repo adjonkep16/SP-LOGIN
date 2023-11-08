@@ -1,90 +1,90 @@
 package com.example.splogin.models;
 
 public class Event {
-    static String title;
-    static int eventID;
-    static String description;
-    static String date;
-    static String location;
-    static String Image;
-    static String host;
-    static String category;
-    static String author;
+     String title;
+     int eventID;
+     String description;
+     String date;
+     String location;
+     String Image;
+     String host;
+     String category;
+     String author;
 
     public Event() {};
 
-    public static String getAuthor() {
+    public  String getAuthor() {
         return author;
     }
 
-    public static void setAuthor(String author) {
-        Event.author = author;
+    public  void setAuthor(String author) {
+        this.author = author;
     }
 
-    public static String getCategory() {
+    public  String getCategory() {
         return category;
     }
 
-    public static void setCategory(String category) {
-        Event.category = category;
+    public  void setCategory(String category) {
+        this.category = category;
     }
 
 
-    public static String getHost() {
+    public  String getHost() {
         return host;
     }
 
-    public static void setHost(String host) {
-        Event.host = host;
+    public  void setHost(String host) {
+        this.host = host;
     }
 
 
-    public static String getTitle() {
+    public  String getTitle() {
         return title;
     }
 
-    public static void setTitle(String title) {
-        Event.title = title;
+    public  void setTitle(String title) {
+        this.title = title;
     }
 
-    public static int getEventID() {
+    public  int getEventID() {
         return eventID;
     }
 
-    public static void setEventID(int eventID) {
-        Event.eventID = eventID;
+    public  void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
-    public static String getDescription() {
+    public  String getDescription() {
         return description;
     }
 
-    public static void setDescription(String description) {
-        Event.description = description;
+    public  void setDescription(String description) {
+        this.description = description;
     }
 
-    public static String getDate() {
+    public  String getDate() {
         return date;
     }
 
-    public static void setDate(String date) {
-        Event.date = date;
+    public  void setDate(String date) {
+        this.date = date;
     }
 
-    public static String getLocation() {
+    public  String getLocation() {
         return location;
     }
 
-    public static void setLocation(String location) {
-        Event.location = location;
+    public  void setLocation(String location) {
+        this.location = location;
     }
 
-    public static String getImage() {
+    public  String getImage() {
         return Image;
     }
 
-    public static void setImage(String Image) {
-        Event.Image = Image;
+    public  void setImage(String Image) {
+        this.Image = Image;
     }
 
     public Event(String title, int eventID, String date, String location, String Image, String category, String host, String author, String description){
