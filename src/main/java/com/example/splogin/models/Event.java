@@ -11,6 +11,8 @@ public class Event {
     static String category;
     static String author;
 
+    public Event() {};
+
     public static String getAuthor() {
         return author;
     }

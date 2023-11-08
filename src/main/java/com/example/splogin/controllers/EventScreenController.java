@@ -1,6 +1,7 @@
 package com.example.splogin.controllers;
 
 import com.example.splogin.models.Event;
+import com.example.splogin.utils.PageUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,15 +9,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import org.w3c.dom.events.MouseEvent;
 
 
 public class EventScreenController implements Initializable {
@@ -62,77 +64,126 @@ public class EventScreenController implements Initializable {
 
     @FXML
     public void addEvent(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/com/example/splogin/views/AddEvent.fxml"));
-        Stage window = (Stage) add.getScene().getWindow();
-        window.setScene(new Scene(root, 918,522));
+//        root = FXMLLoader.load(getClass().getResource("/com/example/splogin/views/AddEvent.fxml"));
+//        Stage window = (Stage) add.getScene().getWindow();
+//        window.setScene(new Scene(root, 918,655));
+        PageUtils pageUtils = new PageUtils();
+        pageUtils.loadPage("/com/example/splogin/views/AddEvent.fxml");
+
+
 
     }
 
     @FXML
     public void deleteEvent(ActionEvent event) throws Exception{
 
+        try{
+            connect = DatabaseConnection.getConnection();
+            ObservableList<Event> selectedEvents = eventTable.getSelectionModel().getSelectedItems();
+
+            // Iterate through the selected events and delete them from the database
+            for (Event selectedEvent : selectedEvents) {
+                int eventID = selectedEvent.getEventID();
+
+                if (deleteEventFromDatabase(eventID)) {
+                    eventTable.getItems().remove(selectedEvent);
+                }
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
+    private boolean deleteEventFromDatabase(int eventID) {
+        try {
+            String sql = "DELETE FROM event WHERE EventID = ?";
+            PreparedStatement deleteStatement = connect.prepareStatement(sql);
+            deleteStatement.setInt(1, eventID);
+
+            int rowsAffected = deleteStatement.executeUpdate();
+            return rowsAffected > 0; // Return true if rows were deleted, false otherwise
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Deletion failed
+        }
+    }
+
+    @FXML
     public void editEvent(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/com/example/splogin/views/UpdateEvent.fxml"));
-        Stage window = (Stage) update.getScene().getWindow();
-        window.setScene(new Scene(root, 918,522));
+//        root = FXMLLoader.load(getClass().getResource("/com/example/splogin/views/UpdateEvent.fxml"));
+//        Stage window = (Stage) update.getScene().getWindow();
+//        window.setScene(new Scene(root, 918,655));
+        PageUtils pageUtils = new PageUtils();
+        pageUtils.loadPage("/com/example/splogin/views/UpdateEvent.fxml");
 
     }
     public ObservableList<Event> eventList() {
 
          connect = DatabaseConnection.getConnection();
-        ObservableList<Event> eventList = FXCollections.observableArrayList();
+        ObservableList<Event> list = FXCollections.observableArrayList();
 
         try {
             String sql = "SELECT * FROM event";
             statement = connect.prepareStatement(sql);
             resultSet = statement.executeQuery();
+            Event eventData;
 
             while (resultSet.next()) {
-                Event eventData = new Event(
-                        resultSet.getString("Title"),
-                        resultSet.getInt("EventID"),
-                        resultSet.getString("Date"),
-                        resultSet.getString("Location"),
-                        resultSet.getString("Image"),
-                        resultSet.getString("Category"),
-                        resultSet.getString("Host"),
-                        resultSet.getString("Author"),
-                        resultSet.getString("Description")
+
+                 eventData = new Event(
+                         resultSet.getString("Title"),
+                         resultSet.getInt("EventID"),
+                         resultSet.getString("Date"),
+                         resultSet.getString("location"),
+                         resultSet.getString("Image"),
+                         resultSet.getString("Category"),
+                         resultSet.getString("Host"),
+                         resultSet.getString("Author"),
+                         resultSet.getString("Description")
                 );
-                eventList.add(eventData);
+                list.add(eventData);
+                //System.out.println(resultSet.getInt("eventID"));
             }
+
 
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            DatabaseConnection.closeConnection();
         }
+//        finally {
+//            DatabaseConnection.closeConnection();
+//        }
 
-        return eventList;
+
+        return list;
     }
 
     public void showEventData() {
         ObservableList<Event> showEventList = eventList();
 
-        idCol.setCellValueFactory(new PropertyValueFactory<>("eventID"));
+
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
-        descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
-        pictureCol.setCellValueFactory(new PropertyValueFactory<>("Image"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("eventID"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
+        pictureCol.setCellValueFactory(new PropertyValueFactory<>("Image"));
         categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
         hostCol.setCellValueFactory(new PropertyValueFactory<>("host"));
         authorCol.setCellValueFactory(new PropertyValueFactory<>("author"));
-        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+
 
         eventTable.setItems(showEventList);
     }
 
+    public void selectData() {
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
